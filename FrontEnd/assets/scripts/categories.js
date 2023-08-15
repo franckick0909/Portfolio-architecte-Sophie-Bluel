@@ -8,27 +8,41 @@ async function callApiCategory() {
     const data = await res.json()
     console.log(data);
 
-
-    const valeurCategory = JSON.stringify(data);
+    //const valeurCategory = JSON.stringify(data);
     // console.log(valeurCategory);
 	// Stockage des informations dans le localStorage
-	window.localStorage.getItem("data", valeurCategory);
+	//window.localStorage.getItem("data", valeurCategory);
 
-    const categories = document.querySelector('.categories');
-    categories.innerHTML += 
-    `<nav class="nav_categories">
-        <a class="btn-link btn-1 active" href="#cat1">Tous</a>
-        <a class="btn-link btn-2 " href="#cat2">${data[0].name}</a>
-        <a class="btn-link btn-3 " href="#cat3">${data[1].name}</a>
-        <a class="btn-link btn-4 " href="#cat4">${data[2].name}</a>
-    </nav>`;
+
+    // categories.innerHTML += 
+    // `<nav class="nav_categories">
+    //     <a data-category="Categorie 1" class="btn-link active" href="#cat1">Tous</a>
+    //     <a data-category="Categorie 2" class="btn-link" href="#cat2">${data[0].name}</a>
+    //     <a data-category="Categorie 3" class="btn-link" href="#cat3">${data[1].name}</a>
+    //     <a data-category="Categorie 4" class="btn-link" href="#cat4">${data[2].name}</a>
+    // </nav>`;
+
+    
+    
+
+    for (let index = 0; index < data.length; index++) {
+        
+        const categories = document.querySelector('.categories');
+
+        const link = document.createElement('a');
+        
+        link.setAttribute('id', data[index].id);
+        link.setAttribute('data-category', data[index].categoryId);
+        link.innerHTML = data[index].name;
+
+        categories.appendChild(link);
+        
+    }
+
+
+
 }
 callApiCategory()
-
-
-const btnsLinks = document.querySelectorAll('.btn-link');
-const btnActive = document.querySelector('.active');
-let selectCategory = 0;
 
 
 

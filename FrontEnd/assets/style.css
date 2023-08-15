@@ -134,13 +134,10 @@ li:hover {
 	align-items: center;
 	flex-wrap: wrap;
 	margin-bottom: 50px;
-}
-.categories .nav_categories{
-    display: flex;
 	gap: 10px;
-
 }
-.categories .nav_categories a{
+
+.categories a{
 	text-decoration: none;
 	color: #1D6154;
     text-align: center;
@@ -152,9 +149,10 @@ li:hover {
 	border: 1px solid #1D6154;
 	font-family: Syne;
 	padding: 9px 13px;
+	cursor: pointer;
 }
 
-.categories .nav_categories a.active{
+.categories a.active{
 	color: #fff;
 	background: #1D6154;
 }
