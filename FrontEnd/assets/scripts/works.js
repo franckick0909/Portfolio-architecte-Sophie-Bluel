@@ -1,4 +1,5 @@
-let worksData = [];                                 // création d'un tableau vide
+
+/*let worksData = [];                                 // création d'un tableau vide
 
 const fetchWorks = async () => {                    // function (async = pour attendre la response de la requète)
     await fetch("http://localhost:5678/api/works")  // Requète fetch pour faire un requète d'une API, on récupère l'URL de l'API
@@ -66,5 +67,28 @@ const worksDisplay = async () => {
 
 }
 
+worksDisplay();
 
-worksDisplay();                           // 
+
+
+const gallery = document.querySelector('.gallery');
+
+async function fetchCategories () {
+    const response = await fetch('http://localhost:5678/api/works')
+    if (response.ok === true) {
+        return response.json();
+    }else{
+        throw new Error('Impossible de contacter le serveur')
+    }
+}
+
+
+fetchCategories().then(works => console.log(works))
+
+/*
+fetch('http://localhost:5678/api/works')
+.then(response => response.json())           //  .then(response => console.log(response)); j'ai bien la reponse de l'API
+                                   //  On transforme la reponse en json.
+.then(data => gallery = data[0].title)  // Je fais une 2eme promesses qui va nous donner accès aux données.
+
+*/

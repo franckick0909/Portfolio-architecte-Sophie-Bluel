@@ -133,11 +133,14 @@ li:hover {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	gap: 1rem;
 	margin-bottom: 50px;
 }
+.categories .nav_categories{
+    display: flex;
+	gap: 10px;
 
-.categories a{
+}
+.categories .nav_categories a{
 	text-decoration: none;
 	color: #1D6154;
     text-align: center;
@@ -151,7 +154,7 @@ li:hover {
 	padding: 9px 13px;
 }
 
-a.active{
+.categories .nav_categories a.active{
 	color: #fff;
 	background: #1D6154;
 }
