@@ -128,7 +128,7 @@ li:hover {
 
 /* DEBUT Nav Categories */ 
 
-.categories{
+.category{
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -137,9 +137,10 @@ li:hover {
 	gap: 10px;
 }
 
-.categories a{
+.category button{
 	text-decoration: none;
 	color: #1D6154;
+	background: #fff;
     text-align: center;
 	font-size: 16px;
 	font-style: normal;
@@ -152,9 +153,13 @@ li:hover {
 	cursor: pointer;
 }
 
-.categories a.active{
+button.active{
 	color: #fff;
 	background: #1D6154;
+}
+
+figure{
+	display: block;
 }
 /* FIN Nav Categories */ 
 
@@ -170,7 +175,6 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
 }
 #contact {
 	width: 50%;

@@ -1,112 +1,75 @@
 
-
 async function callApiCategory() {
     const url = ("http://localhost:5678/api/categories")
-    console.log(url);
-    const res = await fetch(url)
-    console.log(res);
-    const data = await res.json()
-    console.log(data);
-
-    //const valeurCategory = JSON.stringify(data);
-    // console.log(valeurCategory);
-	// Stockage des informations dans le localStorage
-	//window.localStorage.getItem("data", valeurCategory);
+    // console.log(url);
+    const response = await fetch(url)
+    // console.log(res);
+    const dataCat = await response.json()
+    console.log(dataCat);
 
 
-    // categories.innerHTML += 
-    // `<nav class="nav_categories">
-    //     <a data-category="Categorie 1" class="btn-link active" href="#cat1">Tous</a>
-    //     <a data-category="Categorie 2" class="btn-link" href="#cat2">${data[0].name}</a>
-    //     <a data-category="Categorie 3" class="btn-link" href="#cat3">${data[1].name}</a>
-    //     <a data-category="Categorie 4" class="btn-link" href="#cat4">${data[2].name}</a>
-    // </nav>`;
+    dataCat.forEach(categorys => {
+        const category = document.querySelector('.category');
+        const images = document.querySelectorAll('.category figure');
 
-    
-    
-
-    for (let index = 0; index < data.length; index++) {
+        const link = document.createElement('button');
         
-        const categories = document.querySelector('.categories');
+        link.textContent = categorys.name;
+        link.dataset.categoryId = categorys.id;
 
-        const link = document.createElement('a');
+        link.setAttribute('class', "linky");
+
+        category.appendChild(link);    
+
+        link.addEventListener('click', () => {
+            setLinkActive(link); 
+            executeFilter(link.dataset.categoryId);  
+        });
+    });
         
-        link.setAttribute('id', data[index].id);
-        link.setAttribute('data-category', data[index].categoryId);
-        link.innerHTML = data[index].name;
-
-        categories.appendChild(link);
-        
-    }
-
-
-
 }
 callApiCategory()
 
 
+function setLinkActive(link) {
+    document.querySelectorAll('.category button').forEach(element => {
+    
+        element.classList.remove('active')
+    });
+    link.classList.add('active')
+}
+
+// Fonction pour tout filtrer en pasant par la "data-category"
+function executeFilter(id) {
+    let figures = document.querySelectorAll('.gallery figure');
+console.log("executeFilterForId " + id );
+
+    figures.forEach(figure => {
+        if (id === figure.dataset.categoryId || id === "0") {
+            figure.style.display = 'block';
+        }else{
+            figure.style.display = 'none';
+        }
+    });
+}
 
 
+const tousBtn = document.querySelector('#btnTous');
+if (tousBtn){
+    tousBtn.addEventListener('click', () => {
+        setLinkActive(tousBtn)
+        executeFilter(tousBtn.dataset.category)
+    })  
+}
 
+const AllButton= document.createElement('button');
+AllButton.textContent = 'Tous';
 
+AllButton.classList.add('active');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const arrList = Array.from(btnsLinks)
-// console.log(arrList);
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-let categoriesData = [];
-
-const fetchCategories = async () => {
-    await fetch("http://localhost:5678/api/categories")
-    .then((res) => res.json())
-    .then((promise) =>  {                              //console.log(promise)
-        categoriesData = promise;
-        console.log(categoriesData);
-    });   
-};
-
-
-const categoriesDisplay = async () => {
-    await fetchCategories();
-
-    const navCategories = document.getElementById("categories");
-
-    navCategories.innerHTML = 
-    `
-    <a class="active" href="#">Tous</a>
-    <a class="objets" href="#">${categoriesData[0].name}</a>
-    <a class="appartements" href="#">${categoriesData[1].name}</a>
-    <a class="hotels" href="#">${categoriesData[2].name}</a>
-    `
-};
-
-categoriesDisplay();
-*/
+AllButton.addEventListener('click', () => {
+    setLinkActive(tousBtn)
+    executeFilter(tousBtn.dataset.category)
+})
 
 
