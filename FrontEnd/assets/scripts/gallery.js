@@ -10,30 +10,11 @@ async function callApiGallery() {
   // console.log(response); // reponse de l'API 200, ok === true
   dataImg = await response.json()
   console.log(dataImg);  // Récupération des données
+
   } catch (error) {
     alert("Erreur de communication avec le server!")
     return 
   }
-
-//   const valeurGallery = JSON.stringify(data);
-//   console.log(valeurGallery);
-//   // Stockage des informations dans le localStorage
-//   window.localStorage.getItem("data", valeurGallery);
-//   //   console.log(valeurGallery);
-
-
-
-
-  // data.slice(0, 11).forEach(item => {  // Première possibilité créée, mais sans pouvoir avoir les data dans un tableau
-
-// Boucle for pour boucler les données dans un tableau et rajouter les éléments dont on a besoins.
-    // for (let i = 0; i < data.length; i++) {
-    // // création de la gallerie "figure, img, figcaption"
-    // const figure = document.createElement('figure');
-    // figure.setAttribute('id', data[i].id);
-    // figure.setAttribute('data-category', data[i].categoryId);
-
-
 
   // Déclaration du container des images
   const gallery = document.querySelector('.gallery');
@@ -56,6 +37,3 @@ async function callApiGallery() {
 }
 
 callApiGallery()
-
-
-

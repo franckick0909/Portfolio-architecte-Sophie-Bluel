@@ -1,3 +1,5 @@
+
+
 // const apiUrlGallery = ("http://localhost:5678/api/works")
 
 // async function fetchGalleryData() {

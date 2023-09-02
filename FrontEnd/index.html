@@ -8,22 +8,33 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+	crossorigin="anonymous" referrerpolicy="no-referrer">
+
 	<link rel="stylesheet" href="./assets/style.css">
 
 
 	<script src="assets/scripts/works.js" defer></script>
 	<script src="assets/scripts/categories.js" defer></script>
 	<script src="assets/scripts/gallery.js" defer></script>
+	<script src="assets/scripts/connexion.js" defer></script>
+	<script src="assets/scripts/init.js" defer></script>
 	
 </head>
 <body>
+
+	<div class="banniere"></div>
 <header>
+
+
+
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li>login</li>
+			<li><a href="index.html">projets</a></li>
+			<li><a href="#contact">contact</a></li>
+			<li><a id="login" href="connexion.html">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -32,7 +43,9 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
+			<a class="modif" href="#"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
 		</figure>
+
 		<article>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
@@ -41,7 +54,12 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div class="portfolio-title">
+			<h2 class="MesProjets">Mes Projets</h2>
+		    <a class="modifier" href="#" style="display: none;"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
+		</div>
+
+
 
 
         <div class="category">
@@ -49,6 +67,23 @@
 		</div>
         
 		<div class="gallery"></div>
+
+
+
+
+		<aside id="modal1" class="modal1" aria-hidden="true" role="dialog" aria-labelledby="title-modal" style="display: none;">
+			<a id="croix" href="#"><i class="fa-solid fa-xmark"></i></a>
+			<div id="modal1-container">
+				<h3 id="title-modal">Galerie photo</h3>
+
+				<div id="modal1-gallerie"></div>
+
+				<div class="boutons">
+				    <a href="#" id="ajouterPhoto" class="active">Ajouter une photo</a>
+				    <a href="#" id="supprimeGallerie">Supprimer la galerie</a>
+				</div>
+			</div>
+		</aside>
 
 		
 	</section>

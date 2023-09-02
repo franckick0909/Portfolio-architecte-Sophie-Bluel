@@ -71,5 +71,3 @@ AllButton.addEventListener('click', () => {
     setLinkActive(tousBtn)
     executeFilter(tousBtn.dataset.category)
 })
-
-

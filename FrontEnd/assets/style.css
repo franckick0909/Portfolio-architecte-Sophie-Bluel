@@ -22,6 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -52,11 +53,67 @@ body {
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background: #FFFEF8;
 }
 header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0
+}
+
+/*************************/
+
+.banniere{
+    width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	height: 59px;
+	background: #000;
+	gap: 31px;
+}
+.edition{
+	color: #FFF;
+    text-align: center;
+    font-family: Work Sans;
+    font-size: 16px;
+    font-weight: 400;
+}
+.edition .fa-pen-to-square{
+	padding-right: 14px;
+}
+.changement{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	color: #000;
+    text-align: center;
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 500;
+	border-radius: 60px;
+    background: #FFF;
+	width: 216px;
+    height: 38px;
+}
+
+.MesProjets{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 31px;
+}
+.modif{
+	color: #000;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 400;
+}
+.modif .fa-pen-to-square{
+	padding-right: 14px;
 }
 section {
 	margin: 50px 0
@@ -95,15 +152,32 @@ nav li {
 	font-size: 1.2em;
 }
 
-li:hover {
+nav li a{
+	text-decoration: none;
+	color: #000;
+}
+li a:hover {
 	color: #B1663C;
+}
+a.active{
+    color: #000;
+    text-align: center;
+    font-family: Work Sans;
+    font-size: 16px;
+    font-weight: 600;
 }
 #introduction {
 	display: flex;
 	align-items: center;
 }
 #introduction figure {
-	flex: 1
+	flex: 1;
+	margin-bottom: 6rem;
+}
+#introduction  a{
+	display: flex;
+	margin: 14px auto;
+	width: 80%;
 }
 #introduction img {
 	display: block;
@@ -121,9 +195,14 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
-#portfolio h2 {
-	text-align: center;
+#portfolio .portfolio-title{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin-bottom: 1em;
+	gap: 31px;
+	margin-bottom: 51px;
+	
 }
 
 /* DEBUT Nav Categories */ 
@@ -136,7 +215,6 @@ li:hover {
 	margin-bottom: 50px;
 	gap: 10px;
 }
-
 .category button{
 	text-decoration: none;
 	color: #1D6154;
@@ -152,18 +230,11 @@ li:hover {
 	padding: 9px 13px;
 	cursor: pointer;
 }
-
 button.active{
 	color: #fff;
 	background: #1D6154;
 }
-
-figure{
-	display: block;
-}
 /* FIN Nav Categories */ 
-
-
 
 .gallery {
 	width: 100%;
@@ -172,13 +243,94 @@ figure{
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
-
 .gallery img {
 	width: 100%;
 }
+
+/********* MODALE1 *********/
+
+#modal1{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 630px;
+	height: 731px;
+	background: #FFF;
+	border-radius: 10px;
+	position: absolute;
+	overflow: auto;
+	top: 601px;
+	left: 50%;
+	transform: translate(-50%);
+	-webkit-transform: translate(-50%);
+	-moz-transform: translate(-50%);
+	-ms-transform: translate(-50%);
+	-o-transform: translate(-50%);
+	padding: 60px 100px 48px 100px;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.fa-xmark{
+	display: block;
+	position: absolute;
+	font-size: 24px;
+	top: 30px;
+	right: 30px;
+	color: #000;
+}
+#modal1-container{
+	display: block;
+}
+#modal1-container h3{
+
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 26px;
+	font-weight: 400;
+	color: #000;
+	padding-bottom: 41px;
+}
+#modal1-container #modal1-gallerie{
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-column-gap: 10px;
+	grid-row-gap: 3.5px;
+}
+#modal1-container .boutons{
+	display: flex;
+	flex-flow: column wrap;
+	gap: 23px;
+	margin-top: 38px;
+}
+#modal1-container .boutons #ajouterPhoto{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 60px;
+    background: #1D6154;
+	font-family: Syne;
+	font-size: 14px;
+	font-weight: 700;
+	color: #FFF;
+	width: 237px;
+    height: 36px;
+    flex-shrink: 0;
+	border: 1px solid #1D6154;
+}
+#modal1-container .boutons #supprimeGallerie{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Syne;
+	font-size: 14px;
+	background-color: transparent;
+	font-weight: 400;
+	color: #D65353;
+	width: 230px;
+}
 #contact {
 	width: 50%;
-margin: auto;
+    margin: auto;
 }
 #contact > * {
 	text-align: center;
@@ -213,15 +365,19 @@ input[type="submit"]{
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
-	margin : 2em auto ;
+	margin: 2em auto ;
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	-webkit-border-radius: 60px ;
+	-moz-border-radius: 60px ;
+	-ms-border-radius: 60px ;
+	-o-border-radius: 60px ;
 }
 
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
 }
 
