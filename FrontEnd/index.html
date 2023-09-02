@@ -20,6 +20,7 @@
 	<script src="assets/scripts/gallery.js" defer></script>
 	<script src="assets/scripts/connexion.js" defer></script>
 	<script src="assets/scripts/init.js" defer></script>
+	<script src="assets/scripts/modal1.js" defer></script>
 	
 </head>
 <body>
@@ -43,7 +44,7 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
-			<a class="modif" href="#"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
+			<a class="modif js-modal" href="#modal1"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
 		</figure>
 
 		<article>
@@ -56,7 +57,7 @@
 	<section id="portfolio">
 		<div class="portfolio-title">
 			<h2 class="MesProjets">Mes Projets</h2>
-		    <a class="modifier" href="#" style="display: none;"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
+		    <a class="modifier js-modal" href="#modal1"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
 		</div>
 
 
@@ -66,17 +67,19 @@
 			<button id="btnTous" data-category="0" class="linky active">Tous</button>
 		</div>
         
-		<div class="gallery"></div>
+		<div class="gallery"><!-- Ajout de la galerie par l'API --></div>
 
 
 
 
-		<aside id="modal1" class="modal1" aria-hidden="true" role="dialog" aria-labelledby="title-modal" style="display: none;">
-			<a id="croix" href="#"><i class="fa-solid fa-xmark"></i></a>
+		<aside id="modal1" class="modal1" aria-hidden="true" role="dialog" aria-labelledby="title-modal">
+			<a class="js-modal" id="close-modal" aria-label="close-modal" href="#"><i class="fa-solid fa-xmark"></i></a>
 			<div id="modal1-container">
 				<h3 id="title-modal">Galerie photo</h3>
 
-				<div id="modal1-gallerie"></div>
+				<div id="modal1-gallerie">
+					<!-- Ajout de la galerie par l'API -->
+				</div>
 
 				<div class="boutons">
 				    <a href="#" id="ajouterPhoto" class="active">Ajouter une photo</a>
