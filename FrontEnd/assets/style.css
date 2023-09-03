@@ -249,124 +249,12 @@ button.active{
 .gallery img {
 	width: 100%;
 }
-
-/********* MODALE1 *********/
-
-#modal1{
-	display: none;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	max-width: calc(630px - 20px);
-	min-width: calc(300px - 20px);
-	height: 731px;
-	background: #FFF;
-	border-radius: 10px;
-	position: absolute;
-	overflow: auto;
-	top: 15%;
-	left: 50%;
-	padding: 60px 100px 48px 100px;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	transform: translate(-50%, -50%);
-	animation: fadeIn 0.5s ease-in-out;
-	-webkit-animation: fadeIn 0.5s ease-in-out;
-}
-#modal1.hidden{
-	display: flex;
-}
-#modal1[aria-hidden="true"]{
-	animation: fadeOut 0.5s both;
-	-webkit-animation: fadeOut 0.5s both;
-}
-@keyframes fadeIn{
-	from { 
-		opacity: 0;
-		-webkit-transform: translate(-50%, -50%);
-		-moz-transform: translate(-50%, -50%);
-		-ms-transform: translate(-50%, -50%);
-		-o-transform: translate(-50%, -50%);
-		transform: translate(-50%, calc(-50% - 50px));
-	}
-	to { 
-		transform: translate(-50%, calc(-50% - 0px));
-		-webkit-transform: translate(-50%, calc(-50% - 0px));
-		-moz-transform: translate(-50%, calc(-50% - 0px));
-		-ms-transform: translate(-50%, calc(-50% - 0px));
-		-o-transform: translate(-50%, calc(-50% - 0px));
-		opacity: 1;
-	}
-}
-@keyframes fadeOut{
-	from { opacity: 1; }
-	to { opacity: 0; }
-}
-.fa-xmark{
-	display: block;
-	position: absolute;
-	font-size: 24px;
-	top: 30px;
-	right: 30px;
-	color: #000;
-}
-#modal1-container{
-	display: block;
-}
-#modal1-container h3{
-
-	text-align: center;
-	font-family: Work Sans;
-	font-size: 26px;
-	font-weight: 400;
-	color: #000;
-	padding-bottom: 41px;
-}
-#modal1-container #modal1-gallerie{
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-column-gap: 10px;
-	grid-row-gap: 3.5px;
-	border: 1px solid #D65353;
-}
-#modal1-container .boutons{
-	display: flex;
-	flex-flow: column wrap;
-	gap: 23px;
-	margin-top: 38px;
-}
-#modal1-container .boutons #ajouterPhoto{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 60px;
-    background: #1D6154;
-	font-family: Syne;
-	font-size: 14px;
-	font-weight: 700;
-	color: #FFF;
-	width: 237px;
-    height: 36px;
-    flex-shrink: 0;
-	border: 1px solid #1D6154;
-}
-#modal1-container .boutons #supprimeGallerie{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: Syne;
-	font-size: 14px;
-	background-color: transparent;
-	font-weight: 400;
-	color: #D65353;
-	width: 230px;
-}
 #contact {
 	width: 50%;
     margin: auto;
 }
 #contact > * {
 	text-align: center;
-
 }
 #contact h2{
 	margin-bottom: 20px;
@@ -391,7 +279,6 @@ button.active{
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-
 input[type="submit"]{
 	font-family: 'Syne';
 	font-weight: 700;
@@ -406,10 +293,8 @@ input[type="submit"]{
 	-ms-border-radius: 60px ;
 	-o-border-radius: 60px ;
 }
-
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em;
 }
-
