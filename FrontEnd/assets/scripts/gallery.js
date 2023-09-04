@@ -31,14 +31,31 @@ async function callApiGallery() {
             gallery.appendChild(figure);
             figure.dataset.categoryId = image.categoryId;
   });
+}
+callApiGallery()   
 
 
 
+// Modal 1
 
-// Ajout photos galeryModal1
+async function callApiModal1() {
+  const url = ('http://localhost:5678/api/works')
+  let dataModal1 = null
+  try {
+    const res = await fetch(url)
+    // console.log(res);
+
+    dataModal1 = await res.json()
+    console.log(dataModal1);
+
+  } catch (error) {
+    alert("Erreur de communication avec le server!")
+  }
+
+  // Ajout photos galeryModal1
   const galleryModal1 = document.getElementById('modal1-gallerie')
 
-  dataImg.forEach(mod => {
+  dataModal1.forEach(mod => {
     const figureModal1 = document.createElement('figure')
     const imgModal1 = document.createElement('img')
     const figcaptionModal1 = document.createElement('figcaption')
@@ -47,10 +64,10 @@ async function callApiGallery() {
     figcaptionModal1.innerHTML = `<a href="#" class="editer">éditer</a>`
 
     const poubelle = document.createElement('i')
-    poubelle.classList.add('fa-solid', 'fa-trash-can', 'trash')
+    poubelle.classList.add('fa-solid', 'fa-trash-can')
 
     const move = document.createElement('i')
-    move.classList.add('fa-solid', 'fa-arrows-up-down-left-right')
+    move.classList.add('fa-solid', 'fa-arrows-up-down-left-right', 'delete')
 
     figureModal1.appendChild(imgModal1)
     figureModal1.dataset.categoryId = mod.categoryId
@@ -62,8 +79,23 @@ async function callApiGallery() {
     
     figureModal1.appendChild(figcaptionModal1)
     galleryModal1.appendChild(figureModal1)
+
+    poubelle.addEventListener("click", (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+    })
+
+  //   function FilterForId(id) {
+  //     let figures = document.querySelectorAll('.gallery figure');
+  // console.log("FilterForId " + id );
+  
+  //     figures.forEach(figure => {
+  //         if (id === figure.dataset.categoryId || id === "0") {
+  //             figure.style.display = 'block';
+  //         }else{
+  //             figure.style.display = 'none';
+  //         }
+  //     });
   });
-
 }
-
-callApiGallery()
+callApiModal1()

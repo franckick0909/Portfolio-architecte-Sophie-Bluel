@@ -184,3 +184,7 @@ figure:hover .fa-arrows-up-down-left-right{
 	from { opacity: 0; }
 	to { opacity: 1; }
 }
+
+.delete{
+    display: none;
+}
