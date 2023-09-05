@@ -65,6 +65,8 @@ async function callApiModal1() {
 
     const poubelle = document.createElement('i')
     poubelle.classList.add('fa-solid', 'fa-trash-can')
+    poubelle.dataset.id = mod.id
+    
 
     const move = document.createElement('i')
     move.classList.add('fa-solid', 'fa-arrows-up-down-left-right', 'delete')
@@ -80,22 +82,55 @@ async function callApiModal1() {
     figureModal1.appendChild(figcaptionModal1)
     galleryModal1.appendChild(figureModal1)
 
-    poubelle.addEventListener("click", (e) => {
-      e.preventDefault()
-      e.stopPropagation()
-    })
+    // poubelle.addEventListener("click", (e) => {
+    // e.preventDefault()
+    // e.stopPropagation()
+    // poubelle.classList.add('delete')
+    // figureModal1.classList.add('delete')
+    // }) 
 
-  //   function FilterForId(id) {
-  //     let figures = document.querySelectorAll('.gallery figure');
-  // console.log("FilterForId " + id );
-  
-  //     figures.forEach(figure => {
-  //         if (id === figure.dataset.categoryId || id === "0") {
-  //             figure.style.display = 'block';
-  //         }else{
-  //             figure.style.display = 'none';
-  //         }
-  //     });
+    poubelle.addEventListener("click", async (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    supprimeFigureModal1(poubelle.dataset.id)
+    const iconeElement = figureModal1.dataset.id
+    const token = sessionStorage.getItem("token")
+
+    console.log(iconeElement);
+
+    const urlDelete = `http://localhost:5678/api/works/${iconeElement}`
+    // console.log(urlDelete);
+    const resp = await fetch(urlDelete, {
+      method: "DELETE",
+      headers: {
+        accept: "*/*",
+        Authorization: `Bearer ${token}`,
+      },
+      body: {
+        "error": {}
+      }
+    })
+    
+      if (resp.ok === true) {
+        console.log(resp);
+        alert("Projet supprimé avec succes");
+      } else {
+        alert("Echec de suppression");
+      }
+      
+    })
   });
 }
 callApiModal1()
+
+function supprimeFigureModal1(id){
+  let figures = document.querySelectorAll('.modal1-gallerie figure');
+  console.log("supprimeFigureModal1 " + id);
+
+  figures.forEach(figure => {
+    if (id === figure.dataset.id || id === "0") {
+      
+      figure.style.display = 'none'
+    }
+  });
+}

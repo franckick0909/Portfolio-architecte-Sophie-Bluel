@@ -14,6 +14,7 @@
 
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="stylesheet" href="./assets/modals.css">
+	<link rel="stylesheet" href="./assets/modal2.css">
 
 
 	<script src="assets/scripts/works.js" defer></script>
@@ -22,6 +23,7 @@
 	<script src="assets/scripts/connexion.js" defer></script>
 	<script src="assets/scripts/init.js" defer></script>
 	<script src="assets/scripts/modal1.js" defer></script>
+	<script src="assets/scripts/modal2.js" defer></script>
 	
 </head>
 <body>
@@ -74,18 +76,57 @@
 
 
 		<aside id="modal1" class="modal1" aria-hidden="true" role="dialog" aria-labelledby="title-modal">
-			<a class="js-modal" id="close-modal" aria-label="close-modal" href="#"><i class="fa-solid fa-xmark"></i></a>
+			<a class="js-modal" id="close-modal" aria-label="close-modal" href="#"><i class="iconsModal1-x fa-solid fa-xmark"></i></a>
 			<div id="modal1-container">
 				<h3 id="title-modal">Galerie photo</h3>
 
-				<div id="modal1-gallerie">
+				<div id="modal1-gallerie" class="modal1-gallerie">
 					<!-- Ajout de la galerie par l'API -->
 				</div>
 
 				<div class="boutons">
-				    <a href="#" id="ajouterPhoto" class="active">Ajouter une photo</a>
+				    <a href="#modal1" id="ajouterPhoto" class="active">Ajouter une photo</a>
 				    <a href="#" id="supprimeGallerie">Supprimer la galerie</a>
 				</div>
+			</div>
+		</aside>
+
+		<aside id="modal2" class="modal2" aria-hidden="true" role="dialog" aria-labelledby="title-modal">
+			<div class="iconsModal2">
+				<a href="#modal1" class="js-modal" id="returnModal" aria-label="returnModal"><i class="fa-solid fa-arrow-left icons"></i></a>
+
+				<a class="js-modal" id="close-modal2" aria-label="close-modal2" href="#"><i class="iconsModal2-x fa-solid fa-xmark icons"></i></a>
+			</div>
+
+			<div id="modal2-container">
+				<h3 id="title-modal2">Ajout photo</h3>
+
+				<form action="#" class="modal2-form">
+					<div class="ajoutPhoto">
+						<i class="fa-sharp fa-regular fa-image"></i>
+						<input type="text" name="file" id="file" value="+ Ajouter photo">
+						<p>jpg, png : 4mo max</p>
+					</div>
+
+					<div class="formTitleCat">
+						<label for="titlePhoto">Titre</label>
+						<input type="text" name="titlePhoto" id="titlePhoto">
+						<label for="categorie">Catégorie</label>
+						<select name="categorie" id="categorie">
+							<option value=""></option>
+							<option value=""></option>
+							<option value=""></option>
+						</select>
+					</div>
+
+					<div class="valider">
+						<input type="submit" id="submit" disabled="disabled" value="Valider">
+
+						<span id="erreur"></span>
+					</div>
+				</form>
+				
+				
 			</div>
 		</aside>
 
