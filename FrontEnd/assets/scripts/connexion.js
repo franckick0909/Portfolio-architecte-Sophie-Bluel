@@ -7,30 +7,27 @@ function verifierChamp(balise) {
     }
 }
 
-const form = document.getElementById('formData');
-const submit = document.getElementById('submit');
-
-form.addEventListener('submit', async (e) => {
+const form1 = document.getElementById('form1')?.addEventListener('submit', async function (e) {
     e.preventDefault()
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 
+try {
+
     const urlLogin = 'http://localhost:5678/api/users/login';
     const response = await fetch(urlLogin, {
         method: "POST",
         headers: {
-            "Accept": "application/json",
+            "accept": "application/json",
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
             email: email.value,
-            password: password.value,
+            password: password.value,      
         }),
     });
-
         if (response.ok === true) {
-                
 
                 const responses = await response.json(); 
 
@@ -50,6 +47,9 @@ const password = document.getElementById('password');
         verifierChamp(email)
         verifierChamp(password)   
     }
+} catch (error) {
+    console.log(error);
+}
 
 });
 

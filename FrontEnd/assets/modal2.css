@@ -75,7 +75,7 @@
 #modal2-container{
 	display: flex;
 	justify-content: center;
-	flex-flow: column wrap;
+	flex-flow: column;
     padding: 0px  105px 27px;
 }
 #modal2-container h3{
@@ -86,32 +86,33 @@
 	color: #000;
 	padding-bottom: 36px;
 }
-.modal2-form{
+.form2{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column wrap;
 }
-.modal2-form .ajoutPhoto{
+.form2 .ajoutPhoto{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: column wrap;
+    flex-flow: column;
     width: 420px;
     height: 169px;
     flex-shrink: 0;
     border-radius: 3px;
     background: #E8F1F6;
 }
-.modal2-form .ajoutPhoto .fa-image{
+.form2 .ajoutPhoto .fa-image{
     color: #B9C5CC;
     -webkit-text-stroke: transparent;
     font-size: 76px;
     padding-bottom: 10px;
 }
-.modal2-form .ajoutPhoto #file{
-    display: block;
-    text-align: center;
+.form2 .ajoutPhoto label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50px;
     background: #CBD6DC;
     width: 173px;
@@ -122,9 +123,21 @@
     font-weight: 500;
     color: #306685;
     border: #CBD6DC;
-
+    position: relative;
 }
-.modal2-form .ajoutPhoto p{
+.form2 .ajoutPhoto input{
+    display: block;
+    position: absolute;
+    top: 224px;
+    width: 173px;
+    min-height: 36px;
+    font-size: 24px;
+    appearance: none;
+    opacity: 0;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.form2 .ajoutPhoto p{
     text-align: center;
     font-family: Work Sans;
     font-size: 10px;
@@ -137,6 +150,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
 .formTitleCat label {
     display: flex;
@@ -148,23 +162,53 @@
     font-weight: 500;
 	margin: 2em 0 1em 0;
 }
-.formTitleCat input[type="text"], select{
-    width: 379px;
-    height: 51px;
+.formTitleCat input[type="text"]{
+    display: block;
+    width: 420px;
+    height: 100%;
     flex-shrink: 0;
-	font-size: 1.2em;
+	font-size: 14px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    padding: 20px 15px;
+    color: #444;
+    font-weight: 400;
 }
 .formTitleCat select{
+    display: block;
+    font-family: Work Sans;
     margin-bottom: 47px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 10px;
+    font-size: 14px;
+    color: #444;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    overflow: hidden;
+    font-weight: 400;
+}
+select > option{
+    width: 100%;
+    height: 51px;
+    padding: 15px;
+    border: none;
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 400;
+    color: #444;
+    overflow: hidden;
 }
 .valider{
     border-top: 1px solid #B3B3B3;
+    width: 100%;
     padding-top: 4px;
 }
 
 .valider #submit{
+    display: block;
     width: 237px;
     height: 36px;
     flex-shrink: 0;
@@ -181,3 +225,52 @@
 .valider #submit:disabled{
     background: #A7A7A7;
 }
+#erreur-title{
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    width: 99%;
+    color: #af4242;
+    background: #fde8ec;
+    font-family: Work Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 7px 0;
+    padding-left: 5px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+#erreur-categorie{
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    width: 99%;
+    bottom: 7%;
+    color: #af4242;
+    background: #fde8ec;
+    font-family: Work Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 7px 0;
+    padding-left: 5px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+
+/* .error{
+    color: #af4242;
+    background: #fde8ec;
+    padding: 10px 0;
+    display: none;
+    text-align: left;
+} */

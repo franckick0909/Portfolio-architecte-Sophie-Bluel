@@ -5,6 +5,7 @@ const closModal = document.getElementById('close-modal')
 
 jsModal.forEach(trigger => trigger.addEventListener('click', openModal))
 closModal.addEventListener('click', closeModal)
+window.addEventListener('click', closeModalOut)
 
 function openModal() {
     // modal1.classList.toggle('hidden')
@@ -20,7 +21,17 @@ function closeModal() {
     // modal1.classList.add('hidden')
     
     modal1.setAttribute('aria-hidden', 'true')
-    modal1.removeAttribute('aria-modal')
+    modal1.removeAttribute('aria-modal', 'false')
+}
+
+function closeModalOut(e) {
+    if (e.target === modal1) {
+
+    modal1.style.display ='none';
+    modal1.setAttribute('aria-hidden', 'true')
+    modal1.removeAttribute('aria-modal', 'false')
+    }
+
 }
 
 window.addEventListener('keydown', function (e) {
@@ -28,4 +39,3 @@ window.addEventListener('keydown', function (e) {
         closeModal()
     }
 })
-

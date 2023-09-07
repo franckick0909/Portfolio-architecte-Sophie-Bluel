@@ -16,15 +16,14 @@
 	<link rel="stylesheet" href="./assets/modals.css">
 	<link rel="stylesheet" href="./assets/modal2.css">
 
-
-	<script src="assets/scripts/works.js" defer></script>
 	<script src="assets/scripts/categories.js" defer></script>
 	<script src="assets/scripts/gallery.js" defer></script>
 	<script src="assets/scripts/connexion.js" defer></script>
 	<script src="assets/scripts/init.js" defer></script>
 	<script src="assets/scripts/modal1.js" defer></script>
 	<script src="assets/scripts/modal2.js" defer></script>
-	
+	<script src="assets/scripts/works.js" defer></script>
+
 </head>
 <body>
 
@@ -93,7 +92,7 @@
 
 		<aside id="modal2" class="modal2" aria-hidden="true" role="dialog" aria-labelledby="title-modal">
 			<div class="iconsModal2">
-				<a href="#modal1" class="js-modal" id="returnModal" aria-label="returnModal"><i class="fa-solid fa-arrow-left icons"></i></a>
+				<a href="#" class="js-modal" id="returnModal" aria-label="returnModal"><i class="fa-solid fa-arrow-left icons"></i></a>
 
 				<a class="js-modal" id="close-modal2" aria-label="close-modal2" href="#"><i class="iconsModal2-x fa-solid fa-xmark icons"></i></a>
 			</div>
@@ -101,28 +100,43 @@
 			<div id="modal2-container">
 				<h3 id="title-modal2">Ajout photo</h3>
 
-				<form action="#" class="modal2-form">
+				<span class="succes register-succes"></span>
+
+				<form enctype="multipart/form-data" name="form2" id="form2" method="post" action="" class="form2">
 					<div class="ajoutPhoto">
 						<i class="fa-sharp fa-regular fa-image"></i>
-						<input type="text" name="file" id="file" value="+ Ajouter photo">
+						<label for="image">+ Ajouter photo</label>
+						<input type="file" name="image" id="image" accept="image/*" multiple>
+
+						<img id="previewImage" src="#" alt="">
+
+
 						<p>jpg, png : 4mo max</p>
+
+						<span id="erreur-image"></span>
 					</div>
 
 					<div class="formTitleCat">
-						<label for="titlePhoto">Titre</label>
-						<input type="text" name="titlePhoto" id="titlePhoto">
-						<label for="categorie">Catégorie</label>
-						<select name="categorie" id="categorie">
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
+
+						<label for="title">Titre</label>
+						<input type="text" name="title" id="title">
+						<span id="erreur-title"></span>
+
+						<label for="categoryId">Catégorie</label>
+						<select name="categoryId" id="categoryId">
+							<option value="default"></option>
+							<option value="1">Objets</option>
+							<option value="2">Appartements</option>
+							<option value="3">Hôtels & Restaurants</option>
 						</select>
+						<span id="erreur-categorie"></span>
 					</div>
 
 					<div class="valider">
-						<input type="submit" id="submit" disabled="disabled" value="Valider">
+						
 
-						<span id="erreur"></span>
+						<input type="submit" id="submit" value="Valider">
+						
 					</div>
 				</form>
 				

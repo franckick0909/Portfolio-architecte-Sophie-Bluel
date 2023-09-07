@@ -1,263 +1,153 @@
 
-
-// const apiUrlGallery = ("http://localhost:5678/api/works")
-
-// async function fetchGalleryData() {
-//     try {
-//         const response = await fetch(apiUrlGallery)
-//         const dataImg = await response.json()
-
-//         const gallery = document.querySelector('.gallery');
-        
-
-//         dataImg.forEach(image => {
-            
-//             const figure = document.createElement('figure');
-//             const img = document.createElement('img');
-//             img.src = image.imageUrl
-//             img.alt = image.title  
-
-//             const figcaption = document.createElement('figcaption');
-//             figcaption.textContent = image.title;
-
-//             figure.appendChild(img);
-//             figure.appendChild(figcaption);
-//             gallery.appendChild(figure);
-
-//             figure.dataset.categoryId = image.categoryId;
-//         });
-
-//         function filterImageByCategory(categoryId) {
-//             const images = document.querySelectorAll('.category figure');
-
-//             images.forEach(image => {
-//                 if (categoryId === null || image.dataset.categoryId === categoryId) {
-//                     image.style.display = 'block';
-//                 }else{
-//                     image.style.display = 'none';
-//                 }
-//             });
-//         }
-
-//     } catch (error){
-//         alert("Erreur de communication avec le server!")
-//         return 
-//     }      
-// }
-// fetchGalleryData()
-
-
-
-
-
-
-
-
-// const categoryButtonContainer = document.querySelector('.category');
-// const AllButton= document.createElement('button');
-// AllButton.textContent = 'Tous';
-
-// AllButton.classList.add('active');
-
-// AllButton.addEventListener('click', () => {
-//     filterImageByCategory(null)
-// })
-
-// categoryButtonContainer.appendChild(AllButton);
-
-// const apiUrlCategory = ("http://localhost:5678/api/categories")
-
-// async function fetchCategoryData() {
-//     try {
-//         const response = await fetch(apiUrlCategory)
-//         const dataCat = await response.json()
-//         console.log(dataCat);
-
-//         dataCat.forEach(category => {
-//             const button = document.createElement('button');
-//             button.textContent = category.name;
-            
-
-//             button.addEventListener('click', () => {
-//                 filterImageByCategory(category.id);
-//                 updateActiveButton(button);
-
-//             })
-//             categoryButtonContainer.appendChild(button);
-//         });
-
-//     } catch (error){
-//         alert("Erreur de communication avec le server!")
-//         return 
-//     }      
-// }
-// fetchCategoryData()
-
-// function updateActiveButton(button) {
-//     const activeButton = document.querySelector('.active');
-
-//     activeButton.classList.remove('active');
-
-//     button.classList.add('active');
-// }
-
-
-
-
-
-
-
-
-//************************************
-
-
-
-
-
-
-
-// dataImg.forEach(item => {
-
-//     // gallery.innerHTML = '';
-
-//     let currentGallery = null
-//     const figure = document.createElement('figure')
-//     const img = document.createElement('img')
-//     img.src = item.imageUrl
-//     img.alt = item.title
-//     const figcaption = document.createElement('figcaption')
-//     figcaption.textContent = item.title
-
-//     gallery.appendChild(figure)
-//     figure.appendChild(img)
-//     figure.appendChild(figcaption)
-//     })
-
-
-
-
-        // const category = document.querySelector('.category')
-        
-        // dataCat.forEach(categoryName => {
-
-        //     const button = document.createElement('button')
-        //     button.textContent = categoryName.name
-        //     category.appendChild(button)
-        // })
-
-
-
-
-
-// function setLinkActive(button) {
-//     const buttons = document.querySelectorAll('.category button').forEach(btn => btn.classList.remove('active'))
-//     button.classList.add('active')
-// }
-
-
-
-
-// buttons.forEach(button => {
-//     button.addEventListener('click', () => {
-//     buttons.forEach(btn => btn.classList.remove('active'))
-//     button.classList.add('active')
-
-//     })
-            
-
-//         const selectedCategory = button.textContent
-// })
-
-
-
-
-
-
-
-
-// let worksData = [];                                 // création d'un tableau vide
-
-// const fetchWorks = async () => {                    // function (async = pour attendre la response de la requète)
-//     await fetch("http://localhost:5678/api/works")  // Requète fetch pour faire un requète d'une API, on récupère l'URL de l'API
-//     .then((res) => res.json())       // un ".then" qui va être une "promise". on demande a ce que la réponse soit traitée en javascript json. 
-//     .then((promise) => {             // console.log(res.json()) pour savoir si on reçoit bien une reponse de l'URL
-//              worksData = promise;      // console.log(promise) pour voir qu'on a bien récupéré notre tableau! Il n'est plus en promise.
-//              console.log(worksData);
-
-//     });
-// };  
-
-// const worksDisplay = async () => {
-//     await fetchWorks();                  // on attend le tableau fetchWorks, pour pouvoir travailler avec lui
+document.getElementById('form2').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const token = sessionStorage.getItem("token")
+    const image = document.getElementById('image').files[0];
+    const categoryId = document.getElementById('categoryId').value;
+    const title = document.getElementById('title').value;
+
+    let erreurTitle = document.getElementById('erreur-title');
+    let erreurCategorie = document.getElementById('erreur-categorie');
+
+    if (title === "") {
+        erreurTitle.style.display = "flex"
+        erreurTitle.innerHTML = "Veuillez remplir le champs 'Titre' svp."
+        return false
+    } else {
+        erreurTitle.style.display = "none"
+        erreurTitle.innerHTML = ""
+    }
+    if (categoryId === "default") {
+        erreurCategorie.style.display = "flex"
+        erreurCategorie.innerHTML = "Veuillez sélectionner une 'Catégorie' svp."
+        return false
+    } else {
+        erreurCategorie.style.display = "none"
+        erreurCategorie.innerHTML = ""
+    }
+
+    const formData = new FormData();
     
-//     const gallery = document.querySelector(".gallery");  // Je récupère la <div class="gallery"</div>
+    formData.append('image', image);
 
-//     gallery.innerHTML = 
-//     `
-// <figure>
-//     <img src="${worksData[0].imageUrl}" alt="Abajour Tahina">
-//     <figcaption>${worksData[0].title}</figcaption>
-// </figure>
-// <figure>
-//     <img src="${worksData[1].imageUrl}" alt="Appartement Paris V">
-//     <figcaption>${worksData[1].title}</figcaption>
-// </figure>
-// <figure>
-//     <img src="${worksData[2].imageUrl}" alt="Restaurant Sushisen - Londres">
-//     <figcaption>${worksData[2].title}</figcaption>
-// </figure>
-// <figure>
-//     <img src="${worksData[3].imageUrl}" alt="Villa “La Balisiere” - Port Louis">
-//     <figcaption>${worksData[3].title}</figcaption>
-// </figure>
-// <figure>
-//     <img src="${worksData[4].imageUrl}" alt="Structures Thermopolis">
-//     <figcaption>${worksData[4].title}</figcaption>
-// </figure>
-// <figure>
-//     <img src="${worksData[5].imageUrl}" alt="Appartement Paris X">
-//     <figcaption>${worksData[5].title}</figcaption>
-// </figure>
-// <figure>
-//     <img src="${worksData[6].imageUrl}" alt="Pavillon “Le coteau” - Cassis">
-//     <figcaption>${worksData[6].title}</figcaption>
-// </figure>
-// <figure>
-//     <img src="${worksData[7].imageUrl}" alt="Villa Ferneze - Isola d'Elba">
-//     <figcaption>${worksData[7].title}</figcaption>
-// </figure>
-// <figure>
-//     <img src="${worksData[8].imageUrl}" alt="Appartement Paris XVIII">
-//     <figcaption>${worksData[8].title}</figcaption>
-// </figure>
-// <figure>
-//     <img src="${worksData[9].imageUrl}" alt="Bar “Lullaby” - Paris">
-//     <figcaption>${worksData[9].title}</figcaption>
-// </figure>
-// <figure>
-//     <img src="${worksData[10].imageUrl}" alt="Hotel First Arte - New Delhi">
-//     <figcaption>${worksData[10].title}</figcaption>
-// </figure>
-//     `
+    formData.append('title', title);
+    console.log(title);
+    formData.append('category', categoryId);
+    console.log(categoryId);
+    console.log(formData);
 
-// }
+    // for (var key of formData.entries()) {
+    //     console.log(key)
+    // }
 
-// worksDisplay();
 
-// const gallery = document.querySelector('.gallery');
+try {
+    const resp = await fetch('http://localhost:5678/api/works', {
+        method: 'POST',
+        headers: {
+            "accept": "*/*",
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+    })
+    if (resp.ok === true) {
+        
+        alert("Projet ajouté avec succès, veuillez rafraichir la page !");
 
-// async function fetchCategories () {
-//     const response = await fetch('http://localhost:5678/api/works')
-//     if (response.ok === true) {
-//         return response.json();
-//     }else{
-//         throw new Error('Impossible de contacter le serveur')
+    } else {
+        
+        alert('Veuillez remplir tous les champs !')
+    }
+} catch (err) {
+    console.log(err);
+}
+    
+})
+
+// function validation() {
+// // let titlePhoto = document.form2.titlePhoto.value;
+// // let categorie = document.form2.categorie.value;
+
+//     let erreurTitle = document.getElementById('erreur-title');
+//     let erreurCategorie = document.getElementById('erreur-categorie');
+//     let rvalue = true;
+
+//     if (title === "") {
+//         erreurTitle.textContent = "Veuillez remplir le champs 'Titre' svp."
+//         rvalue = false;
 //     }
+//     if (categoryId === "") {
+//         erreurCategorie.textContent = "Veuillez sélectionner une 'Catégorie' svp."
+//         rvalue = false;
+//     }
+//     return rvalue;
 // }
 
-// fetchCategories().then(works => console.log(works)
+//     let erreurTitle = document.getElementById('erreur-title')
+//     let erreurCategorie = document.getElementById('erreur-categorie')
+//     const form = document.getElementById('form2')
+//     const title = document.getElementById('title').value
+//     const categoryId = document.getElementById('categoryId').value
+//     const image = document.getElementById('image').files[0]
 
-// fetch('http://localhost:5678/api/works')
-// .then(response => response.json())           //  .then(response => console.log(response)); j'ai bien la reponse de l'API
-//                                    //  On transforme la reponse en json.
-// .then(data => gallery = data[0].title)  // Je fais une 2eme promesses qui va nous donner accès aux données.
+// form.addEventListener('submit', async (event) => {
+//   event.preventDefault();
+
+//   const formdata = new FormData(event.currentTarget);
+//   const values = [...formdata.values()];
+
+
+//   try {
+
+//     const formData = new FormData(formdata);
+//     formData.append('title', title);
+//     formData.append('categoryId', categoryId);
+//     formData.append('image', image);
+
+//     const res = await fetch('http://localhost:5678/api/works', {
+//         method: 'POST',
+//         body: formData,
+//         headers: {
+//             "Authorization": `Bearer ${token}`,
+//             "Accept": "application/json",
+//             "Content-Type": "multipart/form-data",
+//         },
+//     });
+
+//     if (res.ok === true) {
+//         const resData = await res.json();
+//         console.log(resData);
+//     } else if (values.includes('')) {
+//         erreurTitle.textContent = "Veuillez remplir le champs 'Titre' svp."
+//         erreurCategorie.textContent = "Veuillez sélectionner une 'Catégorie' svp."
+//         return;
+//       }
+
+//   } catch (error) {
+//     alert("Erreur de communication avec le server!")
+//   }
+
+// })
+
+// const form2 = document.forms['my-form2'];
+// // console.log(form2);
+// const select = form2.categorie
+// console.log(select);
+// const options = form2.categorie.options
+// // console.dir(select)
+// console.dir(options)
+
+// // select.disabled = true
+
+// select.onchange = function() {
+
+//         //Donne la value de option
+//         let optionsValue = this.value
+//         console.log(optionsValue);
+        
+//         // Donne le nom de option
+//         optionText = this[this.selectedIndex].innerText
+//         console.log(optionText);
+// }

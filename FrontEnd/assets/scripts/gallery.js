@@ -92,31 +92,36 @@ async function callApiModal1() {
     poubelle.addEventListener("click", async (e) => {
     e.preventDefault()
     e.stopPropagation()
+
     supprimeFigureModal1(poubelle.dataset.id)
     const iconeElement = figureModal1.dataset.id
     const token = sessionStorage.getItem("token")
 
     console.log(iconeElement);
-
+try {
+  
     const urlDelete = `http://localhost:5678/api/works/${iconeElement}`
-    // console.log(urlDelete);
-    const resp = await fetch(urlDelete, {
+
+    const r = await fetch(urlDelete, {
       method: "DELETE",
       headers: {
         accept: "*/*",
         Authorization: `Bearer ${token}`,
       },
-      body: {
-        "error": {}
-      }
+      body: {"error": {} }
     })
     
-      if (resp.ok === true) {
-        console.log(resp);
+      if (r.ok === true) {
+        console.log(r);
         alert("Projet supprimé avec succes");
+        return false
       } else {
         alert("Echec de suppression");
       }
+
+    } catch (error) {
+      console.log(error);
+    }
       
     })
   });
