@@ -109,6 +109,7 @@
     max-width: 126px;
     max-height: 160px;
 	display: none;
+	grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -280,8 +281,8 @@ select > option{
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
 }
-.succes{
-    display: flex;
+#succes{
+    display: none;
     justify-content: center;
     align-items: center;
     margin: 0 auto;

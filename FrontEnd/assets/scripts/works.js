@@ -9,7 +9,7 @@ document.getElementById('form2').addEventListener('submit', async function (e) {
 
     let erreurTitle = document.getElementById('erreur-title');
     let erreurCategorie = document.getElementById('erreur-categorie');
-    let succes = document.querySelector('.succes')
+    let succes = document.getElementById('succes')
 
     if (title === "") {
         erreurTitle.style.display = "flex"
@@ -59,16 +59,15 @@ try {
     })
     if (resp.ok === true) {
         
-        sessionStorage.setItem("image", resp.image);
-        sessionStorage.setItem("title", resp.title);
-        sessionStorage.setItem("category", resp.categoryId);
+        localStorage.setItem("image", resp.image);
+        localStorage.setItem("title", resp.title);
+        localStorage.setItem("category", resp.categoryId);
         sessionStorage.setItem("token", resp.token);
         
         alert("Projet ajouté avec succès !");
 
         document.location.href = "index.html";
-
-        
+   
     } else {
         
         alert('Veuillez remplir tous les champs !')
