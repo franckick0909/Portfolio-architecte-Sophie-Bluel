@@ -20,10 +20,19 @@ function openModal() {
         console.log(e.target.files[0]);
 
     const previewImage = document.getElementById('previewImage')
+    const wrapper_previewImage = document.querySelector('.wrapper-previewImage')
+    wrapper_previewImage.style.display= "flex"
 
     if(previewImage){
         previewImage.src = URL.createObjectURL(e.target.files[0])
-        
+
+
+        const fa_image = document.querySelector(".fa-image")
+        fa_image.style.display = "none"
+        const label_image = document.querySelector('.label_image')
+        label_image.style.display = "none"
+        const p_image_preview = document.querySelector('.p_image_preview')
+        p_image_preview.style.display = "none"
     }
 
    })

@@ -100,18 +100,22 @@
 			<div id="modal2-container">
 				<h3 id="title-modal2">Ajout photo</h3>
 
-				<span class="succes register-succes"></span>
+				<span id="succes" class="succes"></span>
 
 				<form enctype="multipart/form-data" name="form2" id="form2" method="post" action="" class="form2">
 					<div class="ajoutPhoto">
 						<i class="fa-sharp fa-regular fa-image"></i>
-						<label for="image">+ Ajouter photo</label>
+						<div class="wrapper-previewImage">
+							<img id="previewImage" src="#" alt="images">
+						</div>
+						
+						<label for="image" class="label_image">+ Ajouter photo</label>
 						<input type="file" name="image" id="image" accept="image/*" multiple>
 
-						<img id="previewImage" src="#" alt="">
+						
 
 
-						<p>jpg, png : 4mo max</p>
+						<p class="p_image_preview" >jpg, png : 4mo max</p>
 
 						<span id="erreur-image"></span>
 					</div>

@@ -114,7 +114,8 @@ try {
       if (r.ok === true) {
         console.log(r);
         alert("Projet supprimé avec succes");
-        return false
+        
+        document.location.href = "index.html";
       } else {
         alert("Echec de suppression");
       }

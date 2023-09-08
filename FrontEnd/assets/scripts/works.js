@@ -9,6 +9,7 @@ document.getElementById('form2').addEventListener('submit', async function (e) {
 
     let erreurTitle = document.getElementById('erreur-title');
     let erreurCategorie = document.getElementById('erreur-categorie');
+    let succes = document.querySelector('.succes')
 
     if (title === "") {
         erreurTitle.style.display = "flex"
@@ -25,37 +26,49 @@ document.getElementById('form2').addEventListener('submit', async function (e) {
     } else {
         erreurCategorie.style.display = "none"
         erreurCategorie.innerHTML = ""
+    }if (image && title && categoryId) {
+        succes.style.display = "flex"
+        succes.innerHTML = "Formulaire rempli avec succès !!"
+        
+    } else {
+        
     }
 
     const formData = new FormData();
     
     formData.append('image', image);
-
+    console.log(image);
     formData.append('title', title);
     console.log(title);
     formData.append('category', categoryId);
     console.log(categoryId);
-    console.log(formData);
+
 
     // for (var key of formData.entries()) {
     //     console.log(key)
     // }
-
 
 try {
     const resp = await fetch('http://localhost:5678/api/works', {
         method: 'POST',
         headers: {
             "accept": "*/*",
-            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
         },
         body: formData,
     })
     if (resp.ok === true) {
         
-        alert("Projet ajouté avec succès, veuillez rafraichir la page !");
+        sessionStorage.setItem("image", resp.image);
+        sessionStorage.setItem("title", resp.title);
+        sessionStorage.setItem("category", resp.categoryId);
+        sessionStorage.setItem("token", resp.token);
+        
+        alert("Projet ajouté avec succès !");
 
+        document.location.href = "index.html";
+
+        
     } else {
         
         alert('Veuillez remplir tous les champs !')
