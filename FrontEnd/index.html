@@ -13,8 +13,10 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer">
 
 	<link rel="stylesheet" href="./assets/style.css">
-	<link rel="stylesheet" href="./assets/modals.css">
+	<link rel="stylesheet" href="./assets/modal1.css">
 	<link rel="stylesheet" href="./assets/modal2.css">
+
+<!-- <link rel="stylesheet" href="./assets/modal.css"> -->
 
 	<script src="assets/scripts/categories.js" defer></script>
 	<script src="assets/scripts/gallery.js" defer></script>
@@ -23,6 +25,9 @@
 	<script src="assets/scripts/modal1.js" defer></script>
 	<script src="assets/scripts/modal2.js" defer></script>
 	<script src="assets/scripts/works.js" defer></script>
+
+<!-- <script src="assets/scripts/modal.js" defer></script> -->
+
 
 </head>
 <body>
@@ -59,7 +64,7 @@
 	<section id="portfolio">
 		<div class="portfolio-title">
 			<h2 class="MesProjets">Mes Projets</h2>
-		    <a class="modifier js-modal" href="#modal1"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
+		    <a class="modifier js-modal openModal" aria-label="openModal" href="#modal1"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
 		</div>
 
 
@@ -71,30 +76,53 @@
         
 		<div class="gallery"><!-- Ajout de la galerie par l'API --></div>
 
+<!-- =================== TEST MODAL DEBUT =======================-->
 
+		<!-- <dialog class="modal" id="modal">
 
-
-		<aside id="modal1" class="modal1" aria-hidden="true" role="dialog" aria-labelledby="title-modal">
-			<a class="js-modal" id="close-modal" aria-label="close-modal" href="#"><i class="iconsModal1-x fa-solid fa-xmark"></i></a>
+			<a class="closeModal" href="#"><i class="iconsModal1-x fa-solid fa-xmark"></i></a>
+		
 			<div id="modal1-container">
 				<h3 id="title-modal">Galerie photo</h3>
-
+		
 				<div id="modal1-gallerie" class="modal1-gallerie">
-					<!-- Ajout de la galerie par l'API -->
+						
 				</div>
 
 				<div class="boutons">
-				    <a href="#modal1" id="ajouterPhoto" class="active">Ajouter une photo</a>
-				    <a href="#" id="supprimeGallerie">Supprimer la galerie</a>
+					<a href="#modal2" id="ajouterPhoto" class="active">Ajouter une photo</a>
+					<a href="#" id="supprimeGallerie">Supprimer la galerie</a>
 				</div>
 			</div>
-		</aside>
+		</dialog> -->
+
+<!-- =================== TEST MODAL FIN =======================-->
+
+    <div class="overlay js-modal"></div>
+
+			<div class="modal1" aria-hidden="true" role="dialog" aria-labelledby="title-modal">
+			    <a class="js-modal closeModal" aria-label="close-modal" href="#"><i class="js-modal iconsModal1-x fa-solid fa-xmark"></i></a>
+			    <div id="modal1-container">
+				    <h3 id="title-modal">Galerie photo</h3>
+
+				    <div id="modal1-gallerie" class="modal1-gallerie"></div>
+						
+				
+				    <div class="boutons">
+					    <a href="#modal1" id="ajouterPhoto" class="active">Ajouter une photo</a>
+					    <a href="#" id="supprimeGallerie">Supprimer la galerie</a>
+				    </div>
+			    </div>
+		    </div>
+	
+
+	
 
 		<aside id="modal2" class="modal2" aria-hidden="true" role="dialog" aria-labelledby="title-modal">
 			<div class="iconsModal2">
-				<a href="#" class="js-modal" id="returnModal" aria-label="returnModal"><i class="fa-solid fa-arrow-left icons"></i></a>
+				<a href="#" id="returnModal" aria-label="returnModal"><i class="fa-solid fa-arrow-left icons"></i></a>
 
-				<a class="js-modal" id="close-modal2" aria-label="close-modal2" href="#"><i class="iconsModal2-x fa-solid fa-xmark icons"></i></a>
+				<a  id="close-modal2" aria-label="close-modal2" href="#"><i class="iconsModal2-x fa-solid fa-xmark icons"></i></a>
 			</div>
 
 			<div id="modal2-container">
@@ -112,16 +140,12 @@
 						<label for="image" class="label_image">+ Ajouter photo</label>
 						<input type="file" name="image" id="image" accept="image/*" multiple>
 
-						
-
-
 						<p class="p_image_preview" >jpg, png : 4mo max</p>
 
 						<span id="erreur-image"></span>
 					</div>
 
 					<div class="formTitleCat">
-
 						<label for="title">Titre</label>
 						<input type="text" name="title" id="title">
 						<span id="erreur-title"></span>
@@ -137,16 +161,14 @@
 					</div>
 
 					<div class="valider">
-						
-
-						<input type="submit" id="submit" value="Valider">
-						
+						<input type="submit" id="submit" value="Valider">	
 					</div>
 				</form>
 				
 				
 			</div>
 		</aside>
+	
 
 		
 	</section>

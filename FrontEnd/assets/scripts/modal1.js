@@ -1,41 +1,41 @@
 
-const modal1 = document.getElementById('modal1')
-const jsModal = document.querySelectorAll('.js-modal')
-const closModal = document.getElementById('close-modal')
+const jsModal = document.querySelectorAll('.js-modal').forEach(trigger => trigger.addEventListener('click', openModal, closeModal))
 
-jsModal.forEach(trigger => trigger.addEventListener('click', openModal))
-closModal.addEventListener('click', closeModal)
-window.addEventListener('click', closeModalOut)
+const overlay =  document.querySelector('.overlay')
+const modal1 = document.querySelector('.modal1')
+
+const OpenModal = document.querySelector('.openModal')
+const CloseModal = document.querySelector('.closeModal')
+
+OpenModal.addEventListener('click', openModal)
+CloseModal.addEventListener('click', closeModal)
+
 
 function openModal() {
-    // modal1.classList.toggle('hidden')
-    modal1.style.display ='flex'   
-    modal1.setAttribute('aria-hidden', 'false')
-    modal1.setAttribute('aria-modal', 'true')
+  //   overlay.style.display = "block";
+  overlay.classList.toggle('active');
+  modal1.classList.toggle('openModale');
+
+  modal1.removeAttribute('aria-hidden')
+  modal1.setAttribute('aria-modal', 'true')
 }
 
 function closeModal() {
-    window.setTimeout(function () {
-        modal1.style.display ='none';
-    }, 500)
-    // modal1.classList.add('hidden')
-    
-    modal1.setAttribute('aria-hidden', 'true')
-    modal1.removeAttribute('aria-modal', 'false')
+   //   overlay.style.display = "none"; 
+  overlay.classList.toggle('active');
+  modal1.classList.toggle('openModale');
+
+  modal1.setAttribute('aria-hidden', 'true')
+  modal1.removeAttribute('aria-modal')
 }
 
-function closeModalOut(e) {
-    if (e.target === modal1) {
-
-    modal1.style.display ='none';
-    modal1.setAttribute('aria-hidden', 'true')
-    modal1.removeAttribute('aria-modal', 'false')
-    }
-
-}
 
 window.addEventListener('keydown', function (e) {
-    if (e.key === "Escape" || e.key === "Esc") {
-        closeModal()
+    if (e.key === "Escape" || e.key === "Esc") {    
+      overlay.classList.toggle('active');
+      modal1.classList.toggle('openModale');
+    
+      modal1.setAttribute('aria-hidden', 'true')
+      modal1.removeAttribute('aria-modal')
     }
 })

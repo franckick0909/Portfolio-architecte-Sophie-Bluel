@@ -1,6 +1,7 @@
 
 document.getElementById('form2').addEventListener('submit', async function (e) {
     e.preventDefault();
+const submit = document.getElementById('submit')
 
     const token = sessionStorage.getItem("token")
     const image = document.getElementById('image').files[0];
@@ -29,9 +30,9 @@ document.getElementById('form2').addEventListener('submit', async function (e) {
     }if (image && title && categoryId) {
         succes.style.display = "flex"
         succes.innerHTML = "Formulaire rempli avec succès !!"
-        
+        submit.classList.add('valide')     
     } else {
-        
+        return false
     }
 
     const formData = new FormData();

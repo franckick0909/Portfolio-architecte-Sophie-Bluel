@@ -12,14 +12,14 @@
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	max-width: calc(630px - 20px);
-	min-width: calc(300px - 20px);
-	max-height: 100%;  /*670px */
+	width: 630px;
+	max-width: calc(100% - 20px);
+	max-height: calc(100vh - 20px);
+    overflow: hidden;
 	background: #FFF;
 	position: absolute;
-	overflow: hidden;
-	top: -10%;
-	left: 40%;
+	top: 12%;
+	left: 50%;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	transform: translate(-50%, -50%);
 	animation: fadeIn 0.5s ease-out;
@@ -75,8 +75,7 @@
 #modal2-container{
 	display: flex;
 	justify-content: center;
-	flex-flow: column;
-    padding: 0px  105px 27px;
+	flex-direction: column;
 }
 #modal2-container h3{
 	text-align: center;
@@ -207,39 +206,29 @@
     overflow: hidden;
     font-weight: 400;
 }
-select > option{
-    width: 100%;
-    height: 51px;
-    padding: 15px;
-    border: none;
-    font-family: Work Sans;
-    font-size: 14px;
-    font-weight: 400;
-    color: #444;
-    overflow: hidden;
-}
 .valider{
     border-top: 1px solid #B3B3B3;
     width: 100%;
     padding-top: 4px;
+    margin-bottom: 20px;
 }
 .valider #submit{
     display: block;
     width: 237px;
     height: 36px;
-    flex-shrink: 0;
     border-radius: 60px;
     color: #FFF;
     text-align: center;
     font-family: Syne;
     font-size: 14px;
     font-weight: 700;
-    background: #1D6154;
+    /* background: #1D6154; */
+    background: #A7A7A7;
     border: none;
     cursor: pointer;
 }
-.valider #submit:disabled{
-    background: #A7A7A7;
+.valider #submit.valide{
+    background: #1D6154;
 }
 #erreur-title{
     display: none;
