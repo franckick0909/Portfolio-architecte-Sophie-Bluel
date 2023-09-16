@@ -7,25 +7,26 @@ function isConnected() {
     }
 }
 
-
 const userConnected = sessionStorage.getItem("userId");
 
 if (userConnected) {
     const login = document.getElementById('login');
     login.innerHTML = "logout";
-    login.classList.add('active')
+    // login.classList.add('active')
 
     login.addEventListener('click', (logout) => {
         logout.preventDefault();
+        sessionStorage.removeItem("userId");
         sessionStorage.clear();
 
-        document.location.href = "index.html";
         alert("Vous avez été déconnecté avec succès !")
+
+        document.location.href = "index.html";
     })
 }
 
 let category = document.querySelector('.category');
-const banniere = document.querySelector('.banniere');
+let banniere = document.querySelector('.banniere');
 const modif = document.querySelector('.modif');
 const modifier = document.querySelector('.modifier');
 if (userConnected) {

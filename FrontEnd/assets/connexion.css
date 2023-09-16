@@ -10,7 +10,9 @@ body{
     font-size: 14px;
     background: #FFFEF8;
 }
-
+.form1{
+    display: block;
+}
 
 #connexion {
 	display: flex;

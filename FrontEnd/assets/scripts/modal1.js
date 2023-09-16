@@ -10,7 +10,6 @@ const CloseModal = document.querySelector('.closeModal')
 OpenModal.addEventListener('click', openModal)
 CloseModal.addEventListener('click', closeModal)
 
-
 function openModal() {
   //   overlay.style.display = "block";
   overlay.classList.toggle('active');
@@ -18,6 +17,8 @@ function openModal() {
 
   modal1.removeAttribute('aria-hidden')
   modal1.setAttribute('aria-modal', 'true')
+  
+  
 }
 
 function closeModal() {
@@ -27,9 +28,10 @@ function closeModal() {
 
   modal1.setAttribute('aria-hidden', 'true')
   modal1.removeAttribute('aria-modal')
+  
 }
 
-
+// ferme la modal 1 par la touche  ECHAPPE ou ESCAPE
 window.addEventListener('keydown', function (e) {
     if (e.key === "Escape" || e.key === "Esc") {    
       overlay.classList.toggle('active');
@@ -37,5 +39,6 @@ window.addEventListener('keydown', function (e) {
     
       modal1.setAttribute('aria-hidden', 'true')
       modal1.removeAttribute('aria-modal')
+      
     }
 })

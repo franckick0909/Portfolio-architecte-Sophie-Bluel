@@ -1,4 +1,5 @@
 
+//  Function sur la bordure des champs, Border si champs vide, sinon remove
 function verifierChamp(balise) {
     if (balise.value === "") {
         balise.classList.add("error");
@@ -7,8 +8,16 @@ function verifierChamp(balise) {
     }
 }
 
-const form1 = document.getElementById('form1')?.addEventListener('submit', async function (e) {
+const form1 = document.querySelector('.form1'); 
+
+form1.addEventListener('submit', async (e) => {
+    // Empêche le refresh de la page par défault
     e.preventDefault()
+    // Efface le contenu du localStorage
+    localStorage.clear();
+
+
+
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -47,12 +56,11 @@ try {
         verifierChamp(email)
         verifierChamp(password)   
     }
-} catch (error) {
-    console.log(error);
-}
+    } catch (error) {
+        console.log(error);
+    }
 
 });
-
 
 
 

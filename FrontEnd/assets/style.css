@@ -58,17 +58,24 @@ body {
 	font-size: 14px;
 	background: #FFFEF8;
 }
+figcaption{
+color: #3D3D3D;
+font-family: Work Sans;
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
 header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0
 }
-
 /*************************/
 
 .banniere{
     width: 100%;
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
@@ -169,6 +176,10 @@ a.active{
     font-size: 16px;
     font-weight: 600;
 }
+nav li img{
+	width: 22px;
+	height: 22px;
+}
 #introduction {
 	display: flex;
 	align-items: center;
@@ -251,6 +262,7 @@ button.active{
 }
 .gallery img {
 	width: 100%;
+	object-fit: cover;
 }
 #contact {
 	width: 50%;
@@ -300,4 +312,11 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em;
+}
+.confirm{
+	font-size: 16px;
+	font-family: 'Syne';
+	font-weight: 500;
+	color: crimson;
+	padding: 10px 0;
 }

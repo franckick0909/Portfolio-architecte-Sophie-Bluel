@@ -13,20 +13,19 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer">
 
 	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="./assets/connexion.css">
 	<link rel="stylesheet" href="./assets/modal1.css">
 	<link rel="stylesheet" href="./assets/modal2.css">
-
-<!-- <link rel="stylesheet" href="./assets/modal.css"> -->
+    <link rel="stylesheet" href="./assets/modal.css">
 
 	<script src="assets/scripts/categories.js" defer></script>
 	<script src="assets/scripts/gallery.js" defer></script>
-	<script src="assets/scripts/connexion.js" defer></script>
 	<script src="assets/scripts/init.js" defer></script>
+
 	<script src="assets/scripts/modal1.js" defer></script>
 	<script src="assets/scripts/modal2.js" defer></script>
 	<script src="assets/scripts/works.js" defer></script>
-
-<!-- <script src="assets/scripts/modal.js" defer></script> -->
+    <script src="assets/scripts/modal.js" defer></script>
 
 
 </head>
@@ -70,40 +69,62 @@
 
 
 
-        <div class="category">
-			<button id="btnTous" data-category="0" class="linky active">Tous</button>
-		</div>
-        
-		<div class="gallery"><!-- Ajout de la galerie par l'API --></div>
+
 
 <!-- =================== TEST MODAL DEBUT =======================-->
+	<!-- <button class="openModal3 btn-modal3">Go modal</button> -->
 
-		<!-- <dialog class="modal" id="modal">
+	<dialog class="modal3" id="modal3"  aria-describedby="alertdialog">
+		<div class="modal3-container">
 
-			<a class="closeModal" href="#"><i class="iconsModal1-x fa-solid fa-xmark"></i></a>
-		
-			<div id="modal1-container">
-				<h3 id="title-modal">Galerie photo</h3>
-		
-				<div id="modal1-gallerie" class="modal1-gallerie">
-						
-				</div>
+		    <i class="fa-regular fa-circle-check"></i>
 
-				<div class="boutons">
-					<a href="#modal2" id="ajouterPhoto" class="active">Ajouter une photo</a>
-					<a href="#" id="supprimeGallerie">Supprimer la galerie</a>
-				</div>
-			</div>
-		</dialog> -->
+		    <h2>Bravo !!!</h2>
+
+		    <h3>Tu as ajouté ton projet avec succès !</h3>
+
+		    <div class="boutons">
+			    <button  class="close-modal3 btn-modal3" aria-label="close-modal3">Ok, Fermer</button>
+			    <button  class="ajoutePhoto btn-modal3">Nouveau Projet ?</button>
+		    </div>
+		</div>
+	</dialog>
+
+	<!-- <button class="openModal4 btn-modal4">Go modal</button> -->
+
+	<dialog class="modal4 openModal4" id="modal4"  aria-describedby="alertdialog">
+		<div class="modal4-container">
+
+		    <!-- <i class="fa-solid fa-circle-exclamation"></i> -->
+			<i class="fa-solid fa-rocket"></i>
+
+		    <h2>Projet Supprimé !</h2>
+
+		    <h3 class="textConfirm"></h3>
+
+		    <div class="boutons">
+			    <button value="default" type="reset" id="confirmBtn" class="close-modal4 btn-modal4">Ok, Continuer</button>
+			    <button type="submit" class="annuler btn-modal4">Rafraîchir la page</button>
+		    </div>
+		</div>
+	</dialog>
 
 <!-- =================== TEST MODAL FIN =======================-->
+    <div class="category">
+		<button id="btnTous" data-category="0" class="linky active">Tous</button>
+	</div>
+        
+	<div class="gallery"><!-- Ajout de la galerie par l'API --></div>
+
 
     <div class="overlay js-modal"></div>
 
 			<div class="modal1" aria-hidden="true" role="dialog" aria-labelledby="title-modal">
 			    <a class="js-modal closeModal" aria-label="close-modal" href="#"><i class="js-modal iconsModal1-x fa-solid fa-xmark"></i></a>
 			    <div id="modal1-container">
+					
 				    <h3 id="title-modal">Galerie photo</h3>
+                    <p class="confirm"></p>
 
 				    <div id="modal1-gallerie" class="modal1-gallerie"></div>
 						
@@ -136,23 +157,22 @@
 						<div class="wrapper-previewImage">
 							<img id="previewImage" src="#" alt="images">
 						</div>
-						
-						<label for="image" class="label_image">+ Ajouter photo</label>
-						<input type="file" name="image" id="image" accept="image/*" multiple>
-
-						<p class="p_image_preview" >jpg, png : 4mo max</p>
-
+						<div class="vue1">
+						    <label for="image" class="label_image">+ Ajouter photo</label>
+						    <input type="file" name="image" id="image" accept="image/*" class="formField">
+						    <p class="p_image_preview" >jpg, png : 4mo max</p>
+                        </div>
 						<span id="erreur-image"></span>
 					</div>
 
 					<div class="formTitleCat">
 						<label for="title">Titre</label>
-						<input type="text" name="title" id="title">
+						<input type="text" name="title" id="title" class="formField">
 						<span id="erreur-title"></span>
 
 						<label for="categoryId">Catégorie</label>
 						<select name="categoryId" id="categoryId">
-							<option value="default"></option>
+							<option value=""></option>
 							<option value="1">Objets</option>
 							<option value="2">Appartements</option>
 							<option value="3">Hôtels & Restaurants</option>
@@ -161,7 +181,7 @@
 					</div>
 
 					<div class="valider">
-						<input type="submit" id="submit" value="Valider">	
+						<input type="submit" id="submit" value="Valider" class="formField">	
 					</div>
 				</form>
 				
