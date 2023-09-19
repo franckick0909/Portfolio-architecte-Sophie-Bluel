@@ -32,21 +32,22 @@ body{
 	flex-direction: column;
 }
 #connexion label {
-    color: #3D3D3D;
-    font-family: Work Sans;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: #3D3D3D;
+  font-family: Work Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 	margin: 2em 0 1em 0;
 }
 #connexion input[type="email"], input[type="password"]{
-    width: 379px;
-    height: 51px;
-    flex-shrink: 0;
+  width: 379px;
+  height: 51px;
+  flex-shrink: 0;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  padding-left: 16px;
 }
 #connexion input[type="submit"]{
 	font-family: 'Syne';
@@ -62,15 +63,9 @@ body{
     flex-shrink: 0;
 }
 #connexion input.error{
-    /* border: 2px solid rgba(255, 0, 0, 0.5);
-    box-shadow: 0px 2px 14px rgba(255, 0, 0, 0.5); */
-    border: 2px solid rgba(29, 97, 84, 0.5);
-    box-shadow: 0px 2px 14px rgba(29, 97, 84, 0.5);
+    border: 1px solid rgba(220, 20, 60, 0.7);
+    box-shadow: 0px 0px 4px crimson;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
 }
 #connexion p {
     color: #3D3D3D;
@@ -98,3 +93,89 @@ a.active{
     font-weight: 600;
 }
 
+ /* ====================== Modal Déconnexion userId ===================== */
+
+  .modalDeco{
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1), 0 0 0 100vw rgb(0 0 0 / 0.5);
+    background: #fff;
+    color: #222;
+    border: 0;
+    border-radius: 10px;
+    padding: 0;
+  }
+  .modalDeco[open]{
+      animation: fade-in 400ms forwards;
+    -webkit-animation: fade-in 400ms forwards;
+  }
+  .modalDeco[open]::backdrop {
+    background: rgb(0 0 0 / 0.5);
+    animation: fade-in 400ms forwards;
+    -webkit-animation: fade-in 400ms forwards;
+  }
+  .modalDeco[open] {
+    animation: slide__left 1000ms forwards, fade-in 500ms forwards;
+    -webkit-animation: slide__left 1000ms forwards, fade-in 500ms forwards;
+  }
+  .modalDeco[closing] {
+    display: block;
+    pointer-events: none;
+    inset: 0;
+    animation: slide__right 1000ms forwards, fade-out 500ms forwards;
+    -webkit-animation: slide__right 1000ms forwards, fade-out 500ms forwards;
+  } 
+  .container{
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: 14px;
+    padding: 25px 20px;
+  }
+  .container .fa-circle-exclamation{
+    font-size: 40px;
+    color: #4070f4;
+  }
+  .container h3{
+    font-size: 16px;
+    font-family:  sans-serif;
+    font-weight: 400;
+  }
+  .container .divButton{
+    display: flex;
+    justify-content: flex-end; 
+    gap: 1rem;
+    width: 100%;
+  }
+  .container .divButton .btn{
+    font-family:  sans-serif;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 400;
+      padding: 12px 20px;
+      background: #4070f4;
+      border-radius: 6px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+  }
+  .container .divButton .btnConfirm:hover{
+      background: #fff;
+      color: #4070f4;
+  }
+  @keyframes slide__left {
+    0% {
+      transform: translateX(-100%);
+  }
+    100% {
+      transform: translateX(0%);
+      }
+  }
+  @keyframes slide__right {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }

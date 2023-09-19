@@ -71,7 +71,7 @@ header {
 	justify-content: space-between;
 	margin: 50px 0
 }
-/*************************/
+/************ Début init css *************/
 
 .banniere{
     width: 100%;
@@ -115,7 +115,7 @@ header {
 	justify-content: center;
 	gap: 31px;
 }
-.modif{
+.modif, .modifier{
 	color: #000;
 	text-align: center;
 	font-family: Work Sans;
@@ -125,6 +125,9 @@ header {
 .modif .fa-pen-to-square{
 	padding-right: 14px;
 }
+/************ Fin init css *************/
+
+/************ Code déjà en place *************/
 section {
 	margin: 50px 0
 }
@@ -155,13 +158,11 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
-
 }
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 }
-
 nav li a{
 	text-decoration: none;
 	color: #000;
@@ -198,21 +199,18 @@ nav li img{
 	margin: auto;
 	width: 80%;
 }
-
 #introduction article {
 	flex: 1
 }
 #introduction h2 {
 	margin-bottom: 1em;
 }
-
 #introduction p {
 	margin-bottom: 0.5em;
 }
 #portfolio{
 	position: relative;
 }
-
 #portfolio .portfolio-title{
 	display: flex;
 	justify-content: center;
@@ -222,7 +220,7 @@ nav li img{
 	margin-bottom: 51px;	
 }
 
-/* DEBUT Nav Categories */ 
+/************ Début Category css *************/
 
 .category{
 	display: flex;
@@ -251,8 +249,9 @@ button.active{
 	color: #fff;
 	background: #1D6154;
 }
-/* FIN Nav Categories */ 
+/************ Fin Category css *************/
 
+/************ Début Gallery css *************/
 .gallery {
 	width: 100%;
 	display: grid;
@@ -264,6 +263,9 @@ button.active{
 	width: 100%;
 	object-fit: cover;
 }
+/************ Fin Gallery css *************/
+
+/************ Code déjà en place *************/
 #contact {
 	width: 50%;
     margin: auto;
@@ -313,6 +315,9 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em;
 }
+
+
+/************  *************/
 .confirm{
 	font-size: 16px;
 	font-family: 'Syne';

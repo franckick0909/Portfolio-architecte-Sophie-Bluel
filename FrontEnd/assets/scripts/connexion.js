@@ -1,5 +1,5 @@
 
-//  Function sur la bordure des champs, Border si champs vide, sinon remove
+// ********** Function sur la bordure des champs, "Border" si champs vide, appel la class"error",  Sinon remove "error".
 function verifierChamp(balise) {
     if (balise.value === "") {
         balise.classList.add("error");
@@ -8,22 +8,21 @@ function verifierChamp(balise) {
     }
 }
 
+// Déclaration du formulaire (email, mot de passe).
 const form1 = document.querySelector('.form1'); 
 
+// au click du button submit du formulaire, je lance ma requète fetch pour me connecter.
 form1.addEventListener('submit', async (e) => {
-    // Empêche le refresh de la page par défault
+// Empêche le refresh de la page par défault.
     e.preventDefault()
-    // Efface le contenu du localStorage
+// Efface le contenu du localStorage.
     localStorage.clear();
-
-
-
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 
 try {
-
+// Déclaration de l'url 'login'.
     const urlLogin = 'http://localhost:5678/api/users/login';
     const response = await fetch(urlLogin, {
         method: "POST",
@@ -31,6 +30,7 @@ try {
             "accept": "application/json",
             "Content-Type": "application/json",
         },
+// Convertit les valeurs js (email.value) et (password.value), en chaîne json.     
         body: JSON.stringify({
             email: email.value,
             password: password.value,      
@@ -39,11 +39,12 @@ try {
         if (response.ok === true) {
 
                 const responses = await response.json(); 
-
+// Si la réponse est "true", alors " stocke les données pour cette session de navigation.
                 sessionStorage.setItem("userId", responses.userId);
                 sessionStorage.setItem("token", responses.token);
+
                 console.log(sessionStorage);
-                
+// Si la réponse est "true", vous serez dirigé vers la page d'accueil dans 2s, avec la méthode setTimeout                
                 erreur.textContent = "Vous allez être redirigé vers la page d'accueil dans 2 secondes !"
                 setTimeout(() => {
                         document.location.href = "index.html";
@@ -52,7 +53,7 @@ try {
     } else {
         const erreur = document.getElementById('erreur')
         erreur.textContent = "Erreur dans l'identifiant ou le mot de passe.";
-
+// ********** Function sur la bordure des champs
         verifierChamp(email)
         verifierChamp(password)   
     }
@@ -62,133 +63,9 @@ try {
 
 });
 
-
-
-
-// const email = document.getElementById('email').value;
-// const password = document.getElementById('password').value;
-
-//     async function callApiLogin() {
-//         const res = await fetch('http://localhost:5678/api/users/login')
-        //, {
-        //     method: 'POST',
-        //     headers: {
-        //         'accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({ 
-        //         email,
-        //         password})                
-            
-        // })
-//         if (res.ok === true) {
-//             return res.json()
-//         }
-//         throw new Error('Impossible de contacter le serveur')
-//     }
-
-// callApiLogin()  
-
-
-
-// document.forms["inscription"].addEventListener("submit", function(e) {
-
-//     const erreur = document.getElementById('erreur');
-//     let inputs = this
-    
-//     // if (inputs["email"].value != "sophie.bluel@test.tld") {
-//     //     erreur = "Adresse email incorrecte."
-//     // }
-
-//     for (let i = 0; i < inputs.length; i++) {
-//         // console.log(inputs[i])
-//         if (!inputs[i].value) {
-            
-//             erreur = "Veuillez renseigner tous les champs."
-//         } 
-//         verifierChamp(inputs[i])
-//     }
-
-//     if (erreur) {
-//         e.preventDefault()
-//         erreur.textContent = "Nom d'utilisateur ou mot de passe incorrect."
-//         return false
-//     }
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const form = document.getElementById("form");
-
-// function gererForm() {
-//     try {
-//         let baliseMail = document.getElementById("email")
-//         let email = baliseMail.value
-//         validerEmail(email)
-
-//         let baliseMdp = document.getElementById("mdp")
-//         let mdp = baliseMdp.value
-//         afficherMessageErreur("")
-//         verifierEmail()
-//     } catch (erreur) {
-//         afficherMessageErreur(erreur.message)
-//     }
-
-// }
-
-// // function verifierChamp(balise) {
-// //     if (balise.value === "") {
-// //         balise.classList.add("error")
-// //     } else {
-// //         balise.classList.remove("error")
-// //     }
-// // }
-
 // function verifierEmail(email) {
 //     let emailRegExp = new RegExp("[a-z0-9._-]+@[a-z._-]+\\.[a-z._-]+");
 //     if (emailRegExp.test(email)) {
 //         throw new Error("L'email n'est pas valide.")
 //     }
 // }
-
-// function afficherMessageErreur(message) {
-    
-//     let spanErreurMessage = document.getElementById("erreurMessage")
-
-//     if(!spanErreurMessage) {
-//         let popup = document.getElementById('inscription')
-//         spanErreurMessage = document.createElement('span')
-//         spanErreurMessage.id = "erreurMessage"       
-//         popup.appendChild(spanErreurMessage)
-//     }
-//     spanErreurMessage.innerHTML = message
-// }
-
-
-
-
-
-// inscription.addEventListener("submit", (event) => {
-//     event.preventDefault();
-
-// });
-
-
-
-
-
