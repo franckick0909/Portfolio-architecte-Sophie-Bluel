@@ -276,6 +276,7 @@
 	bottom: 18%;
 	opacity: 0;
 	animation: slide-lefte 1s 0.7s forwards;
+	
 }
 
 @keyframes slide-lefte {
